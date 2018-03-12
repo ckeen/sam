@@ -44,7 +44,12 @@ address(Addr *ap, Address a, int sign)
             nextmatch(f, ap->are, sign>=0? a.r.p2 : a.r.p1, sign);
             a.r = sel.p[0];
             break;
-
+        case '^':
+            a1 = lineaddr(0L,a,-1);
+            a.r.p1 = a1.r.p1;
+            a.r.p2 = f->dot.r.p2;
+            return a;
+            break;
         case '"':
             a = matchfile(ap->are)->dot;
             f = a.f;
@@ -55,7 +60,6 @@ address(Addr *ap, Address a, int sign)
         case '*':
             a.r.p1 = 0, a.r.p2 = f->nrunes;
             return a;
-
         case ',':
         case ';':
             if(ap->left)

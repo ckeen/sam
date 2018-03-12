@@ -555,6 +555,7 @@ simpleaddr(void)
     case '+':
     case '-':
     case '\'':
+    case '^':
         addr.type = getch();
         break;
     default:

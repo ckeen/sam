@@ -5,7 +5,7 @@ typedef struct Addr Addr;
 typedef struct Cmd Cmd;
 struct Addr
 {
-    char    type;   /* # (char addr), l (line addr), / ? . $ + - , ; */
+    char    type;   /* # (char addr), l (line addr), / ? . $ + - , ; ^ */
     union{
         String  *re;
         Addr    *aleft;     /* left side of , and ; */
